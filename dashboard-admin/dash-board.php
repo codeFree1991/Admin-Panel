@@ -1,12 +1,4 @@
-<?php  
-    session_start();
-
-    if(!isset($_SESSION["sess_user"])){
-        header("location:../user-login.php");
-    }else{
-
-    }
-?>
+<?php include'include/logout.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -33,13 +25,13 @@
           <h1 class="hidden-xs hidden-sm">Navigation</h1>
           <ul>
             <li class="link active">
-              <a href="#">
+              <a href="user-profile.php">
                 <span aria-hidden="true" class="span-icons"><i class="ion-ios-home-outline"></i></span>
                <span class="hidden-sm hidden-xs">Dashboard</span> 
               </a>
             </li>
             <li class="link">
-              <a href="#">
+              <a href="user-profile.php">
                 <span aria-hidden="true" class="span-icons"><i class="ion-ios-person-outline"></i></span>
                 <span class="hidden-sm hidden-xs">Personal</span>
               </a>

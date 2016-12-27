@@ -1,25 +1,4 @@
-<?php 
-session_start();
-
-//include'include/brand-collections.php';
-$servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "web-app";
-
-   
-        $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-        // set the PDO error mode to exception
-        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $stmt = $conn->prepare("SELECT * FROM brand_collections "); 
-        $stmt->execute();
-        // set the resulting array to associative
-        //$result = $stmt->setFetchMode(PDO::FETCH_COLUMN);
-        $results =$stmt->fetchAll();
-        // print_r($results);
-       
-        
- ?>
+<?php include'include/logout.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -27,17 +6,16 @@ $servername = "localhost";
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Data table | Dashboard-admin</title>
+
+    <title>Bootstrap 101 Template</title>
+
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="chosen_v1.6.2/chosen.min.css">
-    <link rel="stylesheet" type="text/css" href="summernote-master/dist/summernote.css">
     <link href="css/default.css" rel="stylesheet">
     <!-- google fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300" rel="stylesheet">
+
     <link rel="stylesheet" type="text/css" href="css/ionicons.min.css">
-    <link rel="stylesheet" type="text/css" href="css/new-blog.css">
-    <link rel="stylesheet" type="text/css" href="data-tables/css/dataTables.bootstrap.min.css">
   </head>
   <body>
     <div class="container-fluid display-table">
@@ -46,8 +24,8 @@ $servername = "localhost";
         <div class="col-md-2 hidden-xs display-table-cell valign-top" id="side-menu">
           <h1 class="hidden-xs hidden-sm">Navigation</h1>
           <ul>
-            <li class="link">
-              <a href="dash-board.php">
+            <li class="link active">
+              <a href="user-profile.php">
                 <span aria-hidden="true" class="span-icons"><i class="ion-ios-home-outline"></i></span>
                <span class="hidden-sm hidden-xs">Dashboard</span> 
               </a>
@@ -59,7 +37,7 @@ $servername = "localhost";
               </a>
             </li>
               <!-- collapse -->
-              <li class="link active">
+              <li>
                 <a href="#collapse-post" data-toggle="collapse" aria-controls="collapse-post">
                 <span aria-hidden="true" class="span-icons"><i class="ion-ios-person-outline"></i></span>
                 <span class="hidden-sm hidden-xs">Blog</span>
@@ -123,6 +101,7 @@ $servername = "localhost";
                 </nav>
                 <input type="text" class="hidden-sm hidden-xs" id="header-search-field" placeholder="Search for something.......">
               </div>
+              
               <div class="col-md-7">
                 <ul class="pull-right">
                   <li id="welcome" class="hidden-xs"><b>Welcome to Admin Dashboard area</b></li>
@@ -139,7 +118,8 @@ $servername = "localhost";
                     </a>
                   </li>
                   <li>
-                    <a href="#">
+                  <?=$_SESSION['sess_user'];?>
+                    <a href="../assets/include/dash-board-log-out.php">
                       <span aria-hidden="true" class="span-icons"><i class="ion-ios-gear-outline gray-color"></i></span>
                       log out
                     </a>
@@ -147,85 +127,55 @@ $servername = "localhost";
                 </ul>
               </div>
             </header>
-
           </div>
+            
 
           <!-- content post -->
           <div id="content">
-            
+           <!--  <header>
+              <h2 class="page_title">Profile Information</h2>
+            </header> -->
             <div class="content-inner">
-            <div class="panel panel-default">
-                  <div class="panel-heading name-panel1">
-                    <h4 class="add-title">-------------------  Add Brands  -------------------</h4>
-                  </div>
-                  <div class="panel-body">
-<?php if(isset($_SESSION["msg"])){?>
-<div class="alert alert-success alert-dismissable fade in">
-    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-    <strong>Success!</strong> This alert box could indicate a successful or positive action.
-</div>
-<?php } session_unset("msg");?>
-                  <div class="row add-brand">
+              <h3>General Information</h3>
+              <hr>
 
-                    <div class="col-md-12">
-                      <form class="form-inline" method="post" action="include/brand-collections.php">
-                        <div class="form-group">
-                          <input type="text" id="fname" name="brand_code" placeholder="Code No" required="">
-                        </div>
-                        <div class="form-group">
-                          <input type="text" id="fname" name="brand_name" placeholder="Brand Name" required="">
-                        </div>
-                        <div class="form-group">
-                        <select name="brand_status">
-                          <option value="available">available</option>
-                          <option value="unavailable">unavailable</option>                        
-                        </select>
-                          <!-- <input type="text" id="fname" name="s_user" placeholder="Status" required=""> -->
-                        </div>
-                        <input class="button button4" type="submit" value="Add" name="submit">
-                        <!-- <div class="form-group">
-                          <a href="#" class="add-btn" type="submit" name="submit">
-                            <span aria-hidden="true" class="span-icons"><i class="ion-ios-plus big-add"></i>
-                            </span>
-                          </a>
-                        </div> -->
-                    </form>
+              <div class="row">
+                <div class="col-md-12">
+                 <p>profile image</p>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group row clearfix">
+                    <label class="col-sm-3 control-label" for="inputFirstName">First Name</label>
+                    <div class="col-sm-9">
+                      <input class="form-control" id="inputFirstName" placeholder="" type="text" value="Anastasiya">
                     </div>
                   </div>
-                    
+                  <div class="form-group row clearfix">
+                    <label class="col-sm-3 control-label" for="inputLastName">Last Name</label>
+                    <div class="col-sm-9">
+                      <input class="form-control" id="inputLastName" placeholder="" type="text" value="">
+                    </div>
                   </div>
-              </div>
-              <div class="panel panel-default">
-                  <div class="panel-heading name-panel2">
-                    <h4 class="add-title">-------------------  Our Brands  -------------------</h4>
-                  </div>
-                  <div class="panel-body">
-                    <table class="table table-striped  table-hover" id="rankingTable">
-                      <thead>
-                        <tr class="name-panel3">
-                          <th>Code No</th>
-                          <th>Brand Name</th>
-                          <th>Satus</th>
-                          <th>Option</th> 
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <?php
-                         foreach($results as $value) { ?>
-                        <tr>
-                          <td> <?php echo $value['code_id'];?></td>
-                           <td><?php echo $value['brand_name'];?></td>
-                            <td><?php echo $value['status'];?></td>
-                            <td><?php echo $value['status'];?></td>
-                        </tr>
-                        
-                          <?php }?>
-                      </tbody>
-                    </table>
-                  </div>
+                </div>
+                
               </div>
             </div>
           </div>
+
+
+
+
+
+
+
+
+
+
+
+
 
           <!-- footer row -->
           <div class="row">
@@ -241,9 +191,7 @@ $servername = "localhost";
       </div>
     </div>
 
-
-    
-
+  
 
 
 
@@ -259,28 +207,6 @@ $servername = "localhost";
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
-    <script src="chosen_v1.6.2/chosen.jquery.min.js"></script>
-    <script src="summernote-master/dist/summernote.min.js"></script>
-    <!-- data tables -->
-    <script src="data-tables/js/jquery.dataTables.min.js"></script>
-    <script src="data-tables/js/dataTables.bootstrap.min.js"></script>
     <script src="js/default.js"></script>
-
-    <!-- <script type="text/javascript">
-      var config{
-        '.chosen-select': {},
-        '.chosen-select-deselect': {allow_single_deselect:true},
-        '.chosen-select-no-single': {disable_search_threshold:10},
-        '.chosen-select-no-result': {no_result_text: 'Oops nothing found!'},
-        '.chosen-select-width': {width:'95%'}
-      }
-      for (var selector in config){
-        $(selector).chosen(config[selector]);
-      }
-    </script> -->
-    
-    <script type="text/javascript">
-     $(rankingTable).dataTable();
-    </script>
   </body>
 </html>

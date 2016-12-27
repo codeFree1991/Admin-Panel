@@ -1,3 +1,4 @@
+<?php include'include/logout.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -36,7 +37,7 @@
               </a>
             </li>
             <li class="link">
-              <a href="#">
+              <a href="user-profile.php">
                 <span aria-hidden="true" class="span-icons"><i class="ion-ios-person-outline"></i></span>
                 <span class="hidden-sm hidden-xs">Personal</span>
               </a>
@@ -123,7 +124,8 @@
                     </a>
                   </li>
                   <li>
-                    <a href="#">
+                  <?=$_SESSION['sess_user'];?>
+                    <a href="../assets/include/dash-board-log-out.php">
                       <span aria-hidden="true" class="span-icons"><i class="ion-ios-gear-outline gray-color"></i></span>
                       log out
                     </a>

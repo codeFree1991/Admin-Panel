@@ -175,7 +175,7 @@ html, body{
 #content{
 	margin: 20px 0px 50px 0px;
 	background-color: #fff;
-	border-top: 4px solid #e7eaec;
+	border-top: 5px solid rgb(0, 176, 255);
 
 }
 #content header{
@@ -192,6 +192,78 @@ html, body{
 .content-inner{
 	padding: 20px;
 }
+/* -----------------------------------------------------------------------
+					User profile 
+--------------------------------------------------------------------------*/
+.button {
+    /* background-color: #D5716E; */ /* Green */
+    /* border: 1px solid #DDD; */
+    /* color: white; */
+    border-radius: 4px;
+    padding: 12px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+   /*  margin: 4px 2px; */
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+    position: relative;
+}
+.button4 {
+	background-color: #F16971;
+    color: white;
+    border: 1px solid #f1f1f1;
+    border-radius: 4px;
+    margin-right: auto;
+    margin-left: auto;
+}
+.button4:hover {background-color: #F16971; color: #ddd;}
+.add-brand{
+	padding-left: 17%;
+}
+.add-title{
+	text-align: center;
+}
+.name-panel1{
+	background-color: #5E6A8D !important;
+	border-color: white !important;
+	color: white !important;
+}
+.name-panel2{
+	background-color: #5E6A8D !important;
+	border-color: white !important;
+	color: white !important;
+}
+.name-panel3{
+	background-color: #393770 !important;
+	border-color: white !important;
+	color: white !important;
+}
+input[type=text]{
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 1px solid #f1f1f1;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+}
+input[type=text]:focus{
+    border: 1px solid #4B3A97;
+}
+.add-btn{
+	color: #4B3A97 !important;
+	padding: 20px;
+}
+.big-add{
+	font-size: 30px;
+}
+
 /* admin footer area */
 #admin-footer{
 	position: absolute;
